@@ -156,21 +156,41 @@
 
 
   const getRandomToy = () => {
-    return ['bunny', 'duck-yellow', 'duck-pink', 'star', 'water-melon', 'panda', 'dino', 'roboto-san', 'roboto-sama', 'penguin', 'turtle'][randomN(11) - 1]
-  }
+  return ['bunny', 'duck-yellow', 'duck-pink', 'star', 'water-melon', 'panda', 'dino', 'roboto-san', 'roboto-sama', 'penguin', 'turtle'][randomN(11) - 1];
+};
 
-  new Array(settings.capsuleNo).fill('').forEach(() => {
-    const capsule = Object.assign(document.createElement('div'),
-      {
-        className: 'capsule-wrapper pix',
-        innerHTML: `<div class="capsule">
-                      <div class="lid"></div>
-                      <div class="${getRandomToy()} toy pix"></div>
-                      <div class="base ${['red', 'pink', 'white', 'blue'][randomN(4) - 1]}"></div>
-                    </div>`
-      })
-    elements.capsuleMachine.appendChild(capsule)
-  })
+/// 创建娃娃的循环部分
+new Array(settings.capsuleNo).fill('').forEach((_, index) => {
+  const toyName = getRandomToy();
+  const hasCustomText = index === 0; // 控制是否顯示特定文字的變數
+
+  const capsule = Object.assign(document.createElement('div'), {
+    className: 'capsule-wrapper pix',
+    innerHTML: `<div class="capsule">
+                  <div class="lid"></div>
+                  <div class="${toyName} toy pix">
+                    ${hasCustomText ? '<div class="custom-text">"你終於扭到了!~ 恭喜~!!Johnny 屁屁又老了一歲~~ 喜獲 70,000日圓包包 補助金！~~ "</div>' : ''}
+                  </div>
+                  <div class="base ${['red', 'pink', 'white', 'blue'][randomN(4) - 1]}"></div>
+                </div>`
+  });
+
+  elements.capsuleMachine.appendChild(capsule);
+
+  // 添加點擊事件監聽器
+  capsule.addEventListener('click', () => {
+    // 檢查是否是第一個娃娃，並且設置為顯示特定文字
+    if (hasCustomText) {
+      const customText = capsule.querySelector('.custom-text');
+      customText.style.display = 'block';
+      // 在這裡可以添加額外的動畫效果，例如放大、移動到中心等
+    }
+  });
+});
+
+
+
+
   lineData.forEach(() => {
     ;[
       Object.assign(document.createElement('div'),
