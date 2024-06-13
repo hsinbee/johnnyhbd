@@ -1,5 +1,7 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Silkscreen:wght@400;700&display=swap');
+
 * {
     box-sizing: border-box;
     user-select: none;
@@ -11,10 +13,9 @@
     font-family: sans-serif;
     overscroll-behavior: contain;
     height: 100vh;
-    background: url(./HitPawOnline_213659.gif) center/cover no-repeat; /* 使用 cover 来保持背景图片的尺寸等比例，并覆盖整个背景区域 */
+    background: url(./HitPawOnline_213659.gif) center/cover ; /* 使用 cover 来保持背景图片的尺寸等比例，并覆盖整个背景区域 */
 
 }
-
   
   p, h1, h2, h3, h4 {
     display: inline-block;
@@ -42,6 +43,7 @@
     height: 90%;
     overflow: hidden;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     border: 3px solid#ffffff3b;
@@ -324,7 +326,8 @@
   .button-wrapper {
     position: absolute;
     left: 20px;
-    bottom: 20px;
+    bottom: 00px;
+    top: 520px;
     z-index: 10;
   }
   
@@ -440,4 +443,38 @@
   a:hover {
     text-decoration: underline;
   }
+  
+
+  .custom-text {
+    display: none;
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+
+  }
+  
+  .custom-text.show {
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+    font-size: 18px;
+    color: #9ed409;
+  }
+
+  .content-word{
+    font-size: 32px;
+
+  }
+  
+
+  .wrapper_word p {
+    font-size: 40px; /* 調整字體大小 */
+    font-weight: bold; /* 設置為粗體 */
+    margin-bottom: 150px; /* 調整底部間距 */
+    font-family: "Silkscreen", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: rgb(255, 255, 255);
+  }
+
   

@@ -10,8 +10,20 @@
 </head>
 
 <body>
+  <div class="content-word" style="text-align: center;height: 280px;">
+    
+    <img src="./S__85147654-removebg-preview.png" alt="" style="width: 400px;">
+  </div>
+  
   <div class="content">
+   
+
     <div class="wrapper">
+      <div class="wrapper_word">
+
+      <p> johnnylin 's birthday  toy box</p>
+      </div>
+
       <div class="capsule-machine pix">
         <div class="toy-box"></div>
         <div class="lock-cover"></div>
@@ -22,7 +34,7 @@
         <div class="cover e"></div>
         <div class="circle pix">
           <div class="handle"></div>
-        </div>
+       
       </div>
 
       <div class="button-wrapper">
@@ -30,9 +42,8 @@
         <button class="see-inside">see inside</button>
       </div>
 
-      <div class="sign">
-        by masahito / <a href="http://www.ma5a.com/">ma5a.com</a>
       </div>
+
     </div>
   </div>
 
@@ -159,17 +170,17 @@
   return ['bunny', 'duck-yellow', 'duck-pink', 'star', 'water-melon', 'panda', 'dino', 'roboto-san', 'roboto-sama', 'penguin', 'turtle'][randomN(11) - 1];
 };
 
-/// 创建娃娃的循环部分
+// 创建娃娃的循环部分
 new Array(settings.capsuleNo).fill('').forEach((_, index) => {
   const toyName = getRandomToy();
-  const hasCustomText = index === 0; // 控制是否顯示特定文字的變數
+  const customText = index === 0 ? ' 恭喜~!! 大獎 ~' : '';
 
   const capsule = Object.assign(document.createElement('div'), {
     className: 'capsule-wrapper pix',
     innerHTML: `<div class="capsule">
                   <div class="lid"></div>
                   <div class="${toyName} toy pix">
-                    ${hasCustomText ? '<div class="custom-text">"你終於扭到了!~ 恭喜~!!Johnny 屁屁又老了一歲~~ 喜獲 70,000日圓包包 補助金！~~ "</div>' : ''}
+                    <div class="custom-text">${customText}</div>
                   </div>
                   <div class="base ${['red', 'pink', 'white', 'blue'][randomN(4) - 1]}"></div>
                 </div>`
@@ -178,15 +189,16 @@ new Array(settings.capsuleNo).fill('').forEach((_, index) => {
   elements.capsuleMachine.appendChild(capsule);
 
   // 添加點擊事件監聽器
-  capsule.addEventListener('click', () => {
-    // 檢查是否是第一個娃娃，並且設置為顯示特定文字
-    if (hasCustomText) {
-      const customText = capsule.querySelector('.custom-text');
-      customText.style.display = 'block';
-      // 在這裡可以添加額外的動畫效果，例如放大、移動到中心等
-    }
-  });
+  if (index === 0) {
+    capsule.addEventListener('click', () => {
+      const customTextElement = capsule.querySelector('.custom-text');
+      customTextElement.classList.add('show');
+      // 可以在這裡添加其他動畫效果，例如移動到屏幕中央、旋轉等
+    });
+  }
 });
+
+
 
 
 
