@@ -6,23 +6,34 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Johnnylin H B D </title>
   <link rel="stylesheet" href="./joh.css">
-  <link rel="icon" href="./—Pngtree—cartoon children s candy cake_4690651.png" type="image/x-icon" />
+  <link rel="icon" href="./joh_pic/cake.png" type="image/x-icon" />
 
 </head>
 
 <body>
 
-  <div class="content-word" style="text-align: center;height: 280px;">
-    
-    <img src="./S__85147654-removebg-preview.png" alt="" style="width: 400px;">
-  </div>
-  
+
+
   <div class="content">
 
     <div class="wrapper">
+
+      <img src="./joh_pic/Minions-voice-unscreen.gif" alt="Minions" id="music-control-img" style="width: 100px;">
+
+      <audio id="background-music" controls autoplay>
+        <source src="./comedian-117016.mp3" type="audio/mpeg">
+      </audio>
+
+
       <div class="wrapper_word">
 
-      <p> johnnylin 's birthday  toy box</p>
+        <div class="content-word">
+          <img src="./joh_pic/ʕ ﹷ ᴥ ﹷʔ.png" alt="">
+
+        </div>
+
+        <p> johnnylin 's birthday toy box</p>
+
       </div>
 
       <div class="capsule-machine pix">
@@ -35,22 +46,22 @@
         <div class="cover e"></div>
         <div class="circle pix">
           <div class="handle"></div>
-       
-      </div>
+        </div>
 
-      <div class="button-wrapper">
-        <button class="shake">shake</button>
-        <button class="see-inside">see inside</button>
-      </div>
+        <div class="button-wrapper">
+          <button class="shake">shake</button>
+          <button class="see-inside">see inside</button>
+        </div>
+
+
 
       </div>
-
     </div>
-  </div>
 
-  <audio id="background-music" loop>
-    <source src="./Fantasy by Khai Dreams Instrumental [HQ] (320).mp3" type="audio/mpeg">
-  </audio>
+
+
+
+
 </body>
 
 
@@ -168,36 +179,36 @@
 
 
   const getRandomToy = () => {
-  return ['bunny', 'duck-yellow', 'duck-pink', 'star', 'water-melon', 'panda', 'dino', 'roboto-san', 'roboto-sama', 'penguin', 'turtle'][randomN(11) - 1];
-};
+    return ['bunny', 'duck-yellow', 'duck-pink', 'star', 'water-melon', 'panda', 'dino', 'roboto-san', 'roboto-sama', 'penguin', 'turtle'][randomN(11) - 1];
+  };
 
-// 创建娃娃的循环部分
-new Array(settings.capsuleNo).fill('').forEach((_, index) => {
-  const toyName = getRandomToy();
-  const customText = index === 0 ? ' 恭喜~!! 大獎 ~' : '';
+  // 创建娃娃的循环部分
+  new Array(settings.capsuleNo).fill('').forEach((_, index) => {
+    const toyName = getRandomToy();
+    const customText = index === 0 ? ' 恭喜~!! 大獎 ~' : '';
 
-  const capsule = Object.assign(document.createElement('div'), {
-    className: 'capsule-wrapper pix',
-    innerHTML: `<div class="capsule">
+    const capsule = Object.assign(document.createElement('div'), {
+      className: 'capsule-wrapper pix',
+      innerHTML: `<div class="capsule">
                   <div class="lid"></div>
                   <div class="${toyName} toy pix">
                     <div class="custom-text">${customText}</div>
                   </div>
                   <div class="base ${['red', 'pink', 'white', 'blue'][randomN(4) - 1]}"></div>
                 </div>`
-  });
-
-  elements.capsuleMachine.appendChild(capsule);
-
-  // 添加點擊事件監聽器
-  if (index === 0) {
-    capsule.addEventListener('click', () => {
-      const customTextElement = capsule.querySelector('.custom-text');
-      customTextElement.classList.add('show');
-      // 可以在這裡添加其他動畫效果，例如移動到屏幕中央、旋轉等
     });
-  }
-});
+
+    elements.capsuleMachine.appendChild(capsule);
+
+    // 添加點擊事件監聽器
+    if (index === 0) {
+      capsule.addEventListener('click', () => {
+        const customTextElement = capsule.querySelector('.custom-text');
+        customTextElement.classList.add('show');
+        // 可以在這裡添加其他動畫效果，例如移動到屏幕中央、旋轉等
+      });
+    }
+  });
 
 
 
@@ -553,7 +564,7 @@ new Array(settings.capsuleNo).fill('').forEach((_, index) => {
 
 
 
-
 </script>
+
 
 </html>
